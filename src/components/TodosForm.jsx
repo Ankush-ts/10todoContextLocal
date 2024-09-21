@@ -11,6 +11,7 @@ function TodosForm() {
         if (!todo) return
 
         addTodo({ todo, completed: false })
+        //to clear the todo field where we write to add todo
         setTodo("")
     }
 

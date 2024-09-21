@@ -8,7 +8,7 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
-    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
+    setTodos((prev) => [ ...prev, { id: Date.now(), ...todo }])
   }
 
   const updateTodo = (id, todo) => {
@@ -37,8 +37,8 @@ function App() {
 
   return (
     <TodoContext.Provider value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete }}>
-      <div className="bg-[#172842] min-h-screen py-8">
-        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+      <div className="bg-[#172842] min-h-screen py-8 px-4">
+        <div className="max-w-3xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
           <div className="mb-4">
             {/* Todo form goes here */}
@@ -53,7 +53,7 @@ function App() {
             {todos.map((todo) => (
               <div key={todo.id}
                 className='w-full'>
-                <TodosItem todo={todo}/>
+                <TodosItem todo={todo} />
               </div>
             ))}
           </div>
